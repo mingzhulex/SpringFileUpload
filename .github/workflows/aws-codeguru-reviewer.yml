@@ -29,7 +29,7 @@ jobs:
       - name: Upload review result
         if: ${{ github.event_name != 'push' }}
 	run: |
-	  echo "event is not push : ${{ github.event_name }}"	
+          ls ${{ github.workspace }}
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: codeguru-results.sarif.json
