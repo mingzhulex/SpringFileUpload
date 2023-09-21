@@ -16,3 +16,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # This is a required field for CodeGuru
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: AKIA2CDJAS6ISQFJKJVH
+          aws-secret-access-key: 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
+          aws-region: us-east-1
