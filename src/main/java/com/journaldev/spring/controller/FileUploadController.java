@@ -101,7 +101,7 @@ public class FileUploadController {
 				File dir = new File(rootPath + File.separator + "tmpFiles");
 				if (!dir.exists()) {
 					if (!dir.mkdirs()) {
-		                throw new RuntimeException("Failed to create tmpFiles dir.");
+		                throw new RuntimeException("Failed to create " +rootPath + File.separator + "tmpFiles dir.");
 		            }
 				}
 
