@@ -16,6 +16,12 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Hello world action
+        with: # Set the secret as an input
+          super_secret: ${{ secrets.TEST_SECRET_1 }}
+        env: # Or as an environment variable
+          super_secret: ${{ secrets.TEST_SECRET_1 }}
+      - run: echo "TEST secret ${{ secrets.TEST_SECRET_1 }}"
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
@@ -25,9 +31,10 @@ jobs:
         with:
           fetch-depth: 0 # This is a required field for CodeGuru
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::691709974417:role/codeguru-reviewer-role1
+         uses: aws-actions/configure-aws-credentials@v1
+         with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
