@@ -27,8 +27,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIA2CDJAS6IWSKWTG7E
-          aws-secret-access-key: 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
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
