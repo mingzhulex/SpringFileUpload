@@ -23,6 +23,10 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: AKIA2CDJAS6ISQFJKJVH
-          aws-secret-access-key: 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
+          aws-access-key-id: AKIA2CDJAS6IWSKWTG7E
+          aws-secret-access-key: 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
           aws-region: us-east-1
+      - name: CodeGuru Reviewer
+        uses: aws-actions/codeguru-reviewer@v1.1
+        with:
+          s3_bucket: codeguru-reviewer-ming-bucket # S3 Bucket with "codeguru-reviewer-*" prefix
