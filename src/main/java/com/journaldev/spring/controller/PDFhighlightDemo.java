@@ -23,10 +23,11 @@ import java.io.ByteArrayOutputStream;
 
         public static void main(String[] args)  throws IOException {
         	
-        	String rootPath = System.getProperty("catalina.home");
-			File dir = new File(rootPath + File.separator + "tmpFiles");
-			if (!dir.exists())
-				dir.mkdirs();
+//        	String rootPath = System.getProperty("catalina.home");
+//			File dir = new File(rootPath + File.separator + "tmpFiles");
+//			if (!dir.exists()) 
+//				dir.mkdirs();
+//			
 			
             PDDocument document = null;
             String fileName = "/Users/mqzhu/apache-tomcat-9.0.69/tmpFiles/saturdayprelimsdeepprogram_032348.pdf";
