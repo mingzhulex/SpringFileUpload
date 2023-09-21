@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0 # This is a required field for CodeGuru
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::691709974417:role/codeguru-reviewer-role1
           aws-region: us-east-1
