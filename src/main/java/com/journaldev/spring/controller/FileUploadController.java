@@ -99,8 +99,11 @@ public class FileUploadController {
 				// Creating the directory to store file
 				String rootPath = System.getProperty("catalina.home");
 				File dir = new File(rootPath + File.separator + "tmpFiles");
-				if (!dir.exists())
-					dir.mkdirs();
+				if (!dir.exists()) {
+					if (!dir.mkdirs()) {
+		                throw new RuntimeException("Failed to create " +rootPath + File.separator + "tmpFiles dir.");
+		            }
+				}
 
 				// Create the file on server
 				File serverFile = new File(dir.getAbsolutePath()
